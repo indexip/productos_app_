@@ -19,20 +19,23 @@ final String? url;
           decoration: _buildBoxDecoration(),
           width: double.infinity,
           height: 400,
-          child:  ClipRRect(
-            borderRadius:const  BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            child:this.url== null? const Image(image: AssetImage('assets/no-image.png')) : FadeInImage(
-              placeholder: AssetImage('assets/jar-loading.gif'),
-              image: NetworkImage(this.url!),
-              fit: BoxFit.cover,
+          child:  Opacity(
+            opacity: 0.8,
+            child: ClipRRect(
+              borderRadius:const  BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+              child:this.url== null? const Image(image: AssetImage('assets/no-image.png')) : FadeInImage(
+                placeholder: AssetImage('assets/jar-loading.gif'),
+                image: NetworkImage(this.url!),
+                fit: BoxFit.cover,
+              ),
             ),
           )),
     );
   }
 
   BoxDecoration _buildBoxDecoration() => const BoxDecoration(
-          color: Colors.red,
+          color: Colors.black,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20)),
           boxShadow: [
